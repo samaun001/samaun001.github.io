@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>সামাউনের ব্যক্তিগত ওয়েবসাইট</title>
+  <title>স্বাগতম - BK Samaun</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -46,29 +46,56 @@
       font-size: 14px;
       color: #888;
     }
+
+    /* 💬 Popup style */
+    .popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #2ecc71;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      z-index: 999;
+      animation: fadeOut 6s forwards;
+      font-weight: bold;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; display: none; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- ✅ Welcome Popup -->
+  <div class="popup" id="welcomePopup">
+    Welcome! Feel free to explore and discover our latest updates and offers.
+  </div>
+
   <header>
-    <h1>সামাউন</h1>
-    <p>Lathe Machine Operator | ইউটিউবার - BK Samaun</p>
+    <h1>স্বাগতম!</h1>
+    <p>আমি একজন BK Lover - BK Samaun</p>
     <img src="profile.jpg" alt="সামাউনের ছবি" class="profile">
   </header>
 
   <section>
     <h2>আমার সম্পর্কে</h2>
-    <p>আমি একজন Lathe Machine Operator এবং ইউটিউবার। আমি "BK Samaun" চ্যানেলে বাইক রিভিউ, স্পিড টেস্ট, এবং বাইকারদের জন্য গুরুত্বপূর্ণ কনটেন্ট তৈরি করি। আমি ভারতের পশ্চিমবঙ্গ থেকে এসেছি।</p>
+    <p>আমি একজন BK Lover এবং আমি আমার YouTube চ্যানেল "BK Samaun"-এ বাইক রিলেটেড ভিডিও শেয়ার করি।</p>
 
     <div class="contact">
       <h3>যোগাযোগ করুন</h3>
       <p><strong>ইমেইল:</strong> <a href="mailto:samaunzack@gmail.com">samaunzack@gmail.com</a></p>
-      <p><strong>WhatsApp:</strong> <a href="https://wa.me/919907271346">9907271346</a></p>
-      <p><strong>ইউটিউব:</strong> <a href="https://www.youtube.com/@BK_Samaun" target="_blank">BK Samaun</a></p>
+      <p><strong>YouTube:</strong> <a href="https://www.youtube.com/@BK_Samaun">আমার YouTube চ্যানেল দেখুন</a></p>
     </div>
   </section>
 
   <footer>
     &copy; 2025 সামাউন | BK Samaun
   </footer>
+
 </body>
 </html>
