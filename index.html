@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samaun Ahmed - Professional Portfolio</title>
+    <title>Samaun Ahmed | Professional Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
         }
         
         :root {
@@ -26,6 +26,7 @@
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
         }
         
         /* Header & Navigation */
@@ -34,7 +35,7 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(12, 14, 29, 0.9);
+            background: rgba(12, 14, 29, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 5%;
             display: flex;
@@ -123,11 +124,12 @@
             padding: 0 20px;
             max-width: 900px;
             z-index: 2;
+            margin-top: 60px;
         }
         
         .banner-content h1 {
             font-size: 4.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             text-shadow: 0 2px 20px rgba(0,0,0,0.8);
             letter-spacing: 2px;
             animation: fadeInDown 1.5s ease;
@@ -137,6 +139,11 @@
         .banner-content .name-highlight {
             color: var(--secondary);
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            display: block;
+            margin-top: 10px;
+            font-size: 5.5rem;
         }
         
         .banner-content p {
@@ -227,10 +234,13 @@
             overflow: hidden;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
             animation: fadeInLeft 1s ease;
+            position: relative;
         }
         
         .about-img img {
             width: 100%;
+            height: 500px;
+            object-fit: cover;
             display: block;
             transition: transform 0.5s ease;
         }
@@ -323,51 +333,65 @@
             margin-right: 10px;
         }
         
-        /* Suggestions Section */
-        .suggestions-section {
+        /* Gallery Section */
+        .gallery-section {
             padding: 100px 10%;
             background: rgba(0, 0, 0, 0.4);
         }
         
-        .suggestions-grid {
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
             margin-top: 50px;
         }
         
-        .suggestion-card {
-            background: rgba(255, 255, 255, 0.05);
+        .gallery-item {
             border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 215, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-        
-        .suggestion-card:hover {
-            transform: translateY(-10px);
+            overflow: hidden;
+            position: relative;
+            height: 300px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 215, 0, 0.3);
+            transition: all 0.4s ease;
         }
         
-        .suggestion-icon {
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay i {
             font-size: 3rem;
             color: var(--accent);
-            margin-bottom: 20px;
-        }
-        
-        .suggestion-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-        
-        .suggestion-card p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #ddd;
         }
         
         /* Popup Styling */
@@ -526,6 +550,10 @@
                 font-size: 3.5rem;
             }
             
+            .banner-content .name-highlight {
+                font-size: 4rem;
+            }
+            
             .banner-content p {
                 font-size: 1.5rem;
             }
@@ -549,6 +577,10 @@
             
             .banner-content h1 {
                 font-size: 2.8rem;
+            }
+            
+            .banner-content .name-highlight {
+                font-size: 3rem;
             }
             
             .banner-content p {
@@ -582,14 +614,14 @@
     <!-- Header -->
     <header>
         <a href="#" class="logo">
-            <i class="fas fa-code"></i>Samaun
+            <i class="fas fa-user"></i>Samaun
         </a>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#videos">Videos</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -599,11 +631,11 @@
     <section class="banner-container" id="home">
         <img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Banner" class="banner-img">
         <div class="banner-content">
-            <h1><span class="name-highlight">SAMAUN</span> AHMED</h1>
+            <h1>I'm <span class="name-highlight">Samaun Ahmed</span></h1>
             <p>Web Developer & Creative Designer</p>
             <div class="banner-btns">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
+                <a href="#gallery" class="btn btn-primary">View Gallery</a>
+                <a href="#videos" class="btn btn-outline">Watch Videos</a>
             </div>
         </div>
     </section>
@@ -614,6 +646,9 @@
         <div class="about-content">
             <div class="about-img">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Samaun Ahmed">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
             </div>
             <div class="about-text">
                 <h3>Hello! I'm Samaun Ahmed</h3>
@@ -634,68 +669,62 @@
         </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <h2 class="section-title">My Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profile 1">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profile 2">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profile 3">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profile 4">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Video Section -->
-    <section class="video-section" id="projects">
-        <h2 class="section-title">My Latest Project</h2>
+    <section class="video-section" id="videos">
+        <h2 class="section-title">My Latest Video</h2>
         <div class="video-container">
+            <!-- Fixed autoplay with proper parameters -->
             <iframe 
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" 
-                title="Project Showcase" 
+                src="https://www.youtube.com/embed/S0ZPEOl9SbM?autoplay=1&mute=1&enablejsapi=1&playsinline=1&rel=0" 
+                title="Samaun Ahmed YouTube Video" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 allowfullscreen>
             </iframe>
         </div>
-        <a href="#" class="channel-link">
-            <i class="fab fa-youtube"></i> View More Projects
+        <a href="https://www.youtube.com/@bksamaun" class="channel-link" target="_blank">
+            <i class="fab fa-youtube"></i> Subscribe to My Channel
         </a>
-    </section>
-
-    <!-- Suggestions Section -->
-    <section class="suggestions-section" id="suggestions">
-        <h2 class="section-title">Professional Suggestions</h2>
-        <div class="suggestions-grid">
-            <div class="suggestion-card">
-                <div class="suggestion-icon">
-                    <i class="fas fa-rocket"></i>
-                </div>
-                <h3>Portfolio Enhancement</h3>
-                <p>Showcase your best projects with detailed case studies. Include before/after comparisons, challenges faced, and solutions implemented.</p>
-            </div>
-            
-            <div class="suggestion-card">
-                <div class="suggestion-icon">
-                    <i class="fas fa-bullhorn"></i>
-                </div>
-                <h3>Personal Branding</h3>
-                <p>Develop a consistent brand identity across all platforms. Use the same profile picture, color scheme, and bio everywhere.</p>
-            </div>
-            
-            <div class="suggestion-card">
-                <div class="suggestion-icon">
-                    <i class="fas fa-network-wired"></i>
-                </div>
-                <h3>Networking Strategy</h3>
-                <p>Attend industry meetups and conferences. Connect with professionals on LinkedIn and contribute to open-source projects.</p>
-            </div>
-            
-            <div class="suggestion-card">
-                <div class="suggestion-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h3>Continuous Learning</h3>
-                <p>Stay updated with the latest technologies. Consider certifications in emerging fields like AI/ML or cloud computing.</p>
-            </div>
-        </div>
     </section>
 
     <!-- Footer -->
     <footer id="contact">
         <div class="social-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@bksamaun" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
         <p class="copyright">&copy; 2025 Samaun Ahmed | All Rights Reserved</p>
     </footer>
@@ -706,7 +735,7 @@
             <span class="close-btn" onclick="closePopup()">&times;</span>
             <h2 class="popup-title">Welcome to My Portfolio!</h2>
             <p class="popup-text">
-                Thank you for visiting my professional portfolio website. Here you'll find my latest projects, skills, and experience. Feel free to explore and get in touch!
+                Thank you for visiting my professional portfolio website. Here you'll find my latest projects, gallery, and videos. Feel free to explore and get in touch!
             </p>
             <button onclick="closePopup()" class="explore-btn">
                 Start Exploring
@@ -756,6 +785,16 @@
                 });
             });
         });
+        
+        // Video autoplay fix for mobile devices
+        function initVideo() {
+            const videoFrame = document.querySelector('.video-container iframe');
+            if (videoFrame) {
+                videoFrame.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            }
+        }
+        
+        window.addEventListener('load', initVideo);
     </script>
 </body>
 </html>
