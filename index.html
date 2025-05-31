@@ -2,8 +2,8 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BK Samaun - Personal Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BK Samaun</title>
   <style>
     * {
       margin: 0;
@@ -13,92 +13,103 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
       line-height: 1.6;
     }
 
-    header {
-      text-align: center;
-      background-color: #2c3e50;
-      color: white;
-      padding: 30px 20px;
-    }
-
-    .profile {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-top: 20px;
-      border: 4px solid white;
-    }
-
+    /* Banner */
     .banner {
       width: 100%;
-      max-height: 300px;
+      height: 60vh;
       overflow: hidden;
+      position: relative;
     }
 
     .banner img {
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: cover;
-      border-bottom: 4px solid #ccc;
+      filter: brightness(0.7);
     }
 
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 20px;
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
     }
 
-    .section {
+    .banner-text h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .banner-text p {
+      font-size: 1.2rem;
+      color: #ffd700;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Profile Picture */
+    .profile {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      margin: -70px auto 30px;
+      display: block;
+      z-index: 10;
+      position: relative;
       background: #fff;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
     }
 
-    h2 {
-      color: #2c3e50;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #2c3e50;
-      display: inline-block;
-      padding-bottom: 5px;
+    /* Video Section */
+    .video-section {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
-    p {
-      margin-bottom: 15px;
-    }
-
-    a {
-      color: #e74c3c;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+    .video-section h2 {
+      text-align: center;
+      color: #ff4d4d;
+      margin-bottom: 20px;
+      font-size: 2rem;
     }
 
     iframe {
       width: 100%;
-      max-width: 700px;
       height: 400px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
     }
 
     footer {
-      background: #2c3e50;
-      color: white;
       text-align: center;
-      padding: 15px;
+      padding: 20px;
+      color: #ccc;
       font-size: 14px;
     }
 
     @media (max-width: 768px) {
+      .banner-text h1 {
+        font-size: 2rem;
+      }
+
+      .profile {
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+      }
+
       iframe {
         height: 250px;
       }
@@ -107,48 +118,30 @@
 </head>
 <body>
 
-  <!-- 🔰 Banner Section -->
+  <!-- 🔰 Banner -->
   <div class="banner">
     <img src="Banner.jpg" alt="BK Samaun Banner">
+    <div class="banner-text">
+      <h1>BK Samaun</h1>
+      <p>Indian Biker | Speed Test & Reviews</p>
+    </div>
   </div>
 
-  <!-- 🔰 Header/Profile Section -->
-  <header>
-    <h1>BK Samaun</h1>
-    <p>BK Lover & Content Creator</p>
-    <img src="profile.jpg" alt="BK Samaun" class="profile">
-  </header>
+  <!-- 🔰 Profile Image -->
+  <img src="profile.jpg" alt="BK Samaun Profile" class="profile">
 
-  <!-- 🔰 Main Content -->
-  <div class="container">
-
-    <div class="section">
-      <h2>আমার সম্পর্কে</h2>
-      <p>আমি একজন BK Lover এবং আমি আমার YouTube চ্যানেল <strong>BK Samaun</strong>-এ বাইক রিলেটেড ভিডিও, স্পিড টেস্ট ও রিভিউ শেয়ার করি।</p>
-    </div>
-
-    <div class="section">
-      <h2>🎥 আমার সর্বশেষ ভিডিও দেখুন</h2>
-      <div style="text-align: center;">
-        <iframe src="https://www.youtube.com/embed/S0ZPEOl9SbM?autoplay=1&mute=1"
-          title="BK Samaun YouTube Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>যোগাযোগ করুন</h2>
-      <p><strong>ইমেইল:</strong> <a href="mailto:samaunzack@gmail.com">samaunzack@gmail.com</a></p>
-      <p><strong>YouTube:</strong> <a href="https://www.youtube.com/@BK_Samaun" target="_blank">আমার YouTube চ্যানেল</a></p>
-    </div>
-
+  <!-- 🔰 YouTube Video -->
+  <div class="video-section">
+    <h2>🎥 Watch My Latest YouTube Video</h2>
+    <iframe src="https://www.youtube.com/embed/S0ZPEOl9SbM?autoplay=1&mute=1"
+      title="BK Samaun YouTube Video"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
   </div>
 
-  <!-- 🔰 Footer -->
   <footer>
-    &copy; 2025 BK Samaun | সর্বস্বত্ব সংরক্ষিত
+    &copy; 2025 BK Samaun | All Rights Reserved
   </footer>
 
 </body>
