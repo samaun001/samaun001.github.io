@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samaun Ahmed | Professional Portfolio</title>
+    <title>MD Samaun - Professional Bike Rider</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         :root {
-            --primary: #1a2a6c;
-            --secondary: #b21f1f;
+            --primary: #1a1a1a;
+            --secondary: #c00;
             --accent: #ffd700;
-            --dark: #0c0e1d;
-            --light: #f8f9fa;
+            --dark: #0c0c0c;
+            --light: #f0f0f0;
         }
         
         body {
-            background: linear-gradient(135deg, #0c0e1d, #1a1c2f, #0c0e1d);
+            background: linear-gradient(135deg, #0c0c0c, #1a1a1a, #0c0c0c);
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
@@ -35,13 +35,13 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(12, 14, 29, 0.95);
+            background: rgba(12, 12, 12, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            border-bottom: 2px solid var(--accent);
             transition: all 0.3s ease;
         }
         
@@ -52,11 +52,14 @@
             text-decoration: none;
             display: flex;
             align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .logo i {
             margin-right: 10px;
             color: var(--secondary);
+            animation: pulse 2s infinite;
         }
         
         nav ul {
@@ -71,11 +74,13 @@
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
             position: relative;
             padding: 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         nav ul li a:hover {
@@ -106,17 +111,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        
-        .banner-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.4);
-            z-index: -1;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9));
         }
         
         .banner-content {
@@ -124,33 +119,34 @@
             padding: 0 20px;
             max-width: 900px;
             z-index: 2;
-            margin-top: 60px;
+            margin-top: 80px;
         }
         
         .banner-content h1 {
-            font-size: 4.5rem;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.8);
-            letter-spacing: 2px;
+            font-size: 5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            letter-spacing: 3px;
             animation: fadeInDown 1.5s ease;
             color: var(--accent);
+            text-transform: uppercase;
         }
         
-        .banner-content .name-highlight {
+        .banner-content h1 span {
             color: var(--secondary);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
             display: block;
+            font-size: 6rem;
             margin-top: 10px;
-            font-size: 5.5rem;
         }
         
         .banner-content p {
             font-size: 1.8rem;
             margin-bottom: 40px;
             animation: fadeInUp 1.5s ease;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            color: #ddd;
         }
         
         .banner-btns {
@@ -161,7 +157,7 @@
         }
         
         .btn {
-            padding: 15px 35px;
+            padding: 15px 40px;
             border-radius: 50px;
             font-size: 1.1rem;
             font-weight: 600;
@@ -171,18 +167,20 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .btn-primary {
-            background: var(--accent);
-            color: var(--dark);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            background: var(--secondary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(204, 0, 0, 0.4);
         }
         
         .btn-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
-            background: #ffdf33;
+            box-shadow: 0 8px 20px rgba(204, 0, 0, 0.6);
+            background: #d00;
         }
         
         .btn-outline {
@@ -196,10 +194,11 @@
             transform: translateY(-5px);
         }
         
-        /* About Section */
-        .about-section {
-            padding: 100px 10%;
-            background: rgba(0, 0, 0, 0.4);
+        /* Profile Section */
+        .profile-section {
+            padding: 120px 10%;
+            background: rgba(10, 10, 10, 0.8);
+            text-align: center;
         }
         
         .section-title {
@@ -208,6 +207,8 @@
             margin-bottom: 60px;
             color: var(--accent);
             position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .section-title::after {
@@ -216,89 +217,98 @@
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 100px;
             height: 4px;
             background: var(--secondary);
             border-radius: 2px;
         }
         
-        .about-content {
+        .profile-container {
             display: flex;
+            justify-content: center;
             align-items: center;
             gap: 50px;
+            flex-wrap: wrap;
         }
         
-        .about-img {
-            flex: 1;
+        .profile-card {
+            background: rgba(30, 30, 30, 0.7);
             border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
-            animation: fadeInLeft 1s ease;
-            position: relative;
-        }
-        
-        .about-img img {
+            padding: 40px;
             width: 100%;
-            height: 500px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(10px);
         }
         
-        .about-img:hover img {
-            transform: scale(1.05);
+        .profile-icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--dark);
+            border: 5px solid var(--accent);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
         }
         
-        .about-text {
-            flex: 1;
-            animation: fadeInRight 1s ease;
-        }
-        
-        .about-text h3 {
+        .profile-info h3 {
             font-size: 2rem;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             color: var(--accent);
         }
         
-        .about-text p {
+        .profile-info p {
             font-size: 1.1rem;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             line-height: 1.8;
+            color: #ccc;
         }
         
-        .skills {
+        .bike-stats {
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            justify-content: space-around;
             margin-top: 30px;
         }
         
-        .skill-tag {
-            background: rgba(255, 215, 0, 0.1);
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-item .number {
+            font-size: 2.5rem;
+            font-weight: 700;
             color: var(--accent);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            display: block;
+        }
+        
+        .stat-item .label {
+            font-size: 1rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         /* Video Section */
         .video-section {
             padding: 100px 10%;
+            background: rgba(15, 15, 15, 0.9);
             text-align: center;
-            background: rgba(0, 0, 0, 0.6);
         }
         
         .video-container {
-            max-width: 1000px;
-            margin: 40px auto;
+            max-width: 900px;
+            margin: 0 auto;
             position: relative;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 15px 50px rgba(255, 0, 0, 0.3);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
             border: 3px solid var(--secondary);
-            animation: fadeInUp 1s ease;
         }
         
         .video-container iframe {
@@ -319,173 +329,27 @@
             font-size: 1.3rem;
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(178, 31, 31, 0.4);
-            animation: fadeInUp 1.2s ease;
+            box-shadow: 0 5px 15px rgba(204, 0, 0, 0.4);
+            animation: pulse 2s infinite;
         }
         
         .channel-link:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(178, 31, 31, 0.6);
-            background: #c62828;
+            box-shadow: 0 8px 20px rgba(204, 0, 0, 0.6);
+            background: #d00;
+            animation: none;
         }
         
         .channel-link i {
             margin-right: 10px;
         }
         
-        /* Gallery Section */
-        .gallery-section {
-            padding: 100px 10%;
-            background: rgba(0, 0, 0, 0.4);
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 50px;
-        }
-        
-        .gallery-item {
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            height: 300px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s ease;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-        
-        .gallery-overlay i {
-            font-size: 3rem;
-            color: var(--accent);
-        }
-        
-        /* Popup Styling */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.5s ease;
-        }
-        
-        .popup-overlay.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-        
-        .popup-content {
-            background: linear-gradient(135deg, var(--dark), var(--primary));
-            padding: 3rem;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 600px;
-            width: 90%;
-            box-shadow: 0 10px 50px rgba(26, 42, 108, 0.5);
-            position: relative;
-            transform: scale(0.8);
-            transition: transform 0.5s ease;
-            border: 2px solid var(--accent);
-        }
-        
-        .popup-overlay.active .popup-content {
-            transform: scale(1);
-        }
-        
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .close-btn:hover {
-            transform: rotate(90deg);
-            color: var(--accent);
-        }
-        
-        .popup-title {
-            font-size: 2.5rem;
-            margin: 20px 0;
-            color: var(--accent);
-        }
-        
-        .popup-text {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            line-height: 1.8;
-            color: #ddd;
-        }
-        
-        .explore-btn {
-            background: var(--accent);
-            color: var(--dark);
-            border: none;
-            padding: 12px 35px;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-        }
-        
-        .explore-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
-        }
-        
         /* Footer */
         footer {
             text-align: center;
             padding: 50px 20px 30px;
-            background: rgba(0, 0, 0, 0.7);
-            border-top: 1px solid var(--secondary);
+            background: var(--dark);
+            border-top: 2px solid var(--secondary);
         }
         
         .social-links {
@@ -496,15 +360,15 @@
         }
         
         .social-links a {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--accent);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             transition: all 0.3s ease;
         }
         
@@ -517,6 +381,7 @@
         .copyright {
             font-size: 1.1rem;
             color: #aaa;
+            margin-top: 20px;
         }
         
         /* Animations */
@@ -530,56 +395,43 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         
         /* Responsive Design */
         @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
-            }
-            
             .banner-content h1 {
-                font-size: 3.5rem;
-            }
-            
-            .banner-content .name-highlight {
                 font-size: 4rem;
             }
             
-            .banner-content p {
-                font-size: 1.5rem;
+            .banner-content h1 span {
+                font-size: 4.5rem;
             }
         }
         
         @media (max-width: 768px) {
             header {
                 padding: 15px;
+                flex-direction: column;
+                text-align: center;
             }
             
             nav ul {
-                display: none;
+                margin-top: 15px;
             }
             
-            .menu-btn {
-                display: block;
-                font-size: 1.8rem;
-                color: #fff;
-                cursor: pointer;
+            nav ul li {
+                margin: 0 10px;
             }
             
             .banner-content h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
             
-            .banner-content .name-highlight {
+            .banner-content h1 span {
                 font-size: 3rem;
             }
             
@@ -595,17 +447,15 @@
                 height: 300px;
             }
             
-            .popup-content {
-                padding: 2rem 1rem;
-            }
-            
-            .popup-title {
-                font-size: 2rem;
-            }
-            
             .banner-btns {
                 flex-direction: column;
                 gap: 15px;
+            }
+            
+            .profile-icon {
+                width: 120px;
+                height: 120px;
+                font-size: 3.5rem;
             }
         }
     </style>
@@ -614,13 +464,12 @@
     <!-- Header -->
     <header>
         <a href="#" class="logo">
-            <i class="fas fa-user"></i>Samaun
+            <i class="fas fa-motorcycle"></i>MD SAMAUN
         </a>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#profile">Profile</a></li>
                 <li><a href="#videos">Videos</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -629,72 +478,42 @@
 
     <!-- Banner Section -->
     <section class="banner-container" id="home">
-        <img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Banner" class="banner-img">
         <div class="banner-content">
-            <h1>I'm <span class="name-highlight">Samaun Ahmed</span></h1>
-            <p>Web Developer & Creative Designer</p>
+            <h1>PROFESSIONAL<br><span>BIKE RIDER</span></h1>
+            <p>Pushing limits and conquering roads with passion and precision</p>
             <div class="banner-btns">
-                <a href="#gallery" class="btn btn-primary">View Gallery</a>
-                <a href="#videos" class="btn btn-outline">Watch Videos</a>
+                <a href="#videos" class="btn btn-primary">Watch Videos</a>
+                <a href="#profile" class="btn btn-outline">My Profile</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section" id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Samaun Ahmed">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
+    <!-- Profile Section -->
+    <section class="profile-section" id="profile">
+        <h2 class="section-title">My Profile</h2>
+        <div class="profile-container">
+            <div class="profile-card">
+                <div class="profile-icon">
+                    <i class="fas fa-user"></i>
                 </div>
-            </div>
-            <div class="about-text">
-                <h3>Hello! I'm Samaun Ahmed</h3>
-                <p>I'm a passionate web developer and designer from West Bengal, India. With over 5 years of experience in creating modern, responsive websites, I specialize in turning ideas into digital experiences that captivate users.</p>
-                <p>My expertise includes HTML5, CSS3, JavaScript, React, and UI/UX design. I'm constantly learning new technologies to stay at the forefront of web development trends.</p>
-                
-                <div class="skills">
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">CSS3</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">UI/UX Design</span>
-                    <span class="skill-tag">Responsive Design</span>
-                    <span class="skill-tag">Git & GitHub</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery-section" id="gallery">
-        <h2 class="section-title">My Gallery</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profile 1">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profile 2">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profile 3">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profile 4">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
+                <div class="profile-info">
+                    <h3>MD SAMAUN</h3>
+                    <p>Professional bike rider with years of experience in stunt riding, racing, and long-distance touring. Passionate about exploring new terrains and pushing the limits of what's possible on two wheels.</p>
+                    
+                    <div class="bike-stats">
+                        <div class="stat-item">
+                            <span class="number">8+</span>
+                            <span class="label">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="number">150+</span>
+                            <span class="label">Events</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="number">25k+</span>
+                            <span class="label">Km Ridden</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -702,12 +521,12 @@
 
     <!-- Video Section -->
     <section class="video-section" id="videos">
-        <h2 class="section-title">My Latest Video</h2>
+        <h2 class="section-title">Latest Ride</h2>
         <div class="video-container">
-            <!-- Fixed autoplay with proper parameters -->
+            <!-- Autoplay video from your channel -->
             <iframe 
                 src="https://www.youtube.com/embed/S0ZPEOl9SbM?autoplay=1&mute=1&enablejsapi=1&playsinline=1&rel=0" 
-                title="Samaun Ahmed YouTube Video" 
+                title="MD Samaun Bike Riding" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 allowfullscreen>
             </iframe>
@@ -721,61 +540,27 @@
     <footer id="contact">
         <div class="social-links">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="https://www.youtube.com/@bksamaun" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
-        <p class="copyright">&copy; 2025 Samaun Ahmed | All Rights Reserved</p>
+        <p class="copyright">© 2025 MD SAMAUN | Professional Bike Rider</p>
     </footer>
 
-    <!-- Welcome Popup -->
-    <div class="popup-overlay" id="welcomePopup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="closePopup()">&times;</span>
-            <h2 class="popup-title">Welcome to My Portfolio!</h2>
-            <p class="popup-text">
-                Thank you for visiting my professional portfolio website. Here you'll find my latest projects, gallery, and videos. Feel free to explore and get in touch!
-            </p>
-            <button onclick="closePopup()" class="explore-btn">
-                Start Exploring
-            </button>
-        </div>
-    </div>
-
     <script>
-        // Popup Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Show popup after 1 second
-            setTimeout(function() {
-                document.getElementById('welcomePopup').classList.add('active');
-            }, 1000);
-        });
-        
-        function closePopup() {
-            document.getElementById('welcomePopup').classList.remove('active');
-        }
-        
-        // Close popup when clicking outside
-        document.querySelector('.popup-overlay').addEventListener('click', function(e) {
-            if(e.target === this) {
-                closePopup();
-            }
-        });
-        
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.padding = '10px 5%';
-                header.style.background = 'rgba(12, 14, 29, 0.95)';
+                header.style.background = "rgba(10, 10, 10, 0.98)";
+                header.style.padding = "10px 5%";
             } else {
-                header.style.padding = '15px 5%';
-                header.style.background = 'rgba(12, 14, 29, 0.9)';
+                header.style.background = "rgba(12, 12, 12, 0.95)";
+                header.style.padding = "15px 5%";
             }
         });
         
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
