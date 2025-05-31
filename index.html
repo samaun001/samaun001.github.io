@@ -154,3 +154,237 @@
 <div style="text-align: center; margin-bottom: 20px;">
   <img src="file-JmKMUdfuSgi46nr3oXmXzy.png" alt="BK Samaun YouTube Banner" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px;">
 </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .banner {
+            width: 100%;
+            display: block;
+        }
+        .banner img {
+            width: 100%;
+            height: auto;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background: #444;
+            color: #fff;
+            text-align: center;
+            padding: 0.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+        nav a:hover {
+            background: #555;
+        }
+        .content {
+            padding: 20px;
+            background: #fff;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Personal Website</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="banner">
+        <!-- Replace 'Banner.jpg' with the correct path if it's in a folder -->
+        <img src="Banner.jpg" alt="Website Banner">
+    </div>
+    <div class="container">
+        <div class="content">
+            <h2>Welcome to My Website</h2>
+            <p>This is a sample paragraph to welcome visitors to your personal website. You can add more content here about yourself, your services, or anything you'd like to share.</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 My Personal Website. All rights reserved.</p>
+    </footer>
+</body>
+</html><!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samaun - Personal Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        /* Banner Styling */
+        .banner-container {
+            width: 100%;
+            height: 70vh;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        /* Content Styling */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        /* Animation Effects */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated-section {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .banner-container {
+                height: 50vh;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner Section -->
+    <div class="banner-container">
+        <img src="Banner.jpg" alt="Professional Banner" class="banner-img">
+        <div class="banner-overlay">
+            <h1>Samaun Ahmed</h1>
+            <p>Web Developer & Digital Creator</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <section class="section animated-section" style="animation-delay: 0.2s;">
+            <h2>About Me</h2>
+            <p>Hello! I'm Samaun, a passionate web developer from West Bengal, India. I specialize in creating modern, responsive websites with cutting-edge technologies.</p>
+            <p>With expertise in HTML5, CSS3, JavaScript, and React, I transform ideas into digital experiences that captivate users.</p>
+        </section>
+        
+        <section class="section animated-section" style="animation-delay: 0.4s;">
+            <h2>My Projects</h2>
+            <p>1. E-commerce Platform with React & Node.js</p>
+            <p>2. Portfolio Website with Three.js Animations</p>
+            <p>3. Weather App with Real-time API Integration</p>
+        </section>
+        
+        <section class="section animated-section" style="animation-delay: 0.6s;">
+            <h2>Contact Me</h2>
+            <p>Email: samaun@example.com</p>
+            <p>GitHub: github.com/samaun001</p>
+            <p>Location: West Bengal, India</p>
+        </section>
+    </div>
+</body>
+</html>
