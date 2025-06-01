@@ -1,32 +1,47 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MD Samaun - Professional Bike Rider</title>
+    <title>Blogosphere | Professional Blogging Platform</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
         :root {
             --primary: #0f172a;
             --secondary: #ff4d00;
             --accent: #00e1ff;
             --dark: #0a0f1f;
             --light: #e6f7ff;
+            --blog-card: rgba(30, 40, 60, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
             background: linear-gradient(135deg, #0a0f1f, #0f172a, #0a0f1f);
             color: #fff;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
             overflow-x: hidden;
             min-height: 100vh;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 77, 0, 0.1) 0%, transparent 20%), 
+                        radial-gradient(circle at 90% 80%, rgba(0, 225, 255, 0.1) 0%, transparent 20%);
+            z-index: -1;
         }
         
         /* Header & Navigation */
@@ -43,6 +58,7 @@
             align-items: center;
             border-bottom: 2px solid var(--accent);
             transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
         
         .logo {
@@ -54,6 +70,7 @@
             align-items: center;
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-family: 'Playfair Display', serif;
         }
         
         .logo i {
@@ -102,54 +119,82 @@
             width: 100%;
         }
         
-        /* Banner Section */
-        .banner-container {
-            width: 100%;
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+        
+        .search-bar input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 15px;
+            border-radius: 50px;
+            color: white;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar input:focus {
+            outline: none;
+            width: 250px;
+            border-color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
             height: 100vh;
-            overflow: hidden;
-            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9));
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
         }
         
-        .banner-content {
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 225, 255, 0.05) 0%, transparent 70%);
+        }
+        
+        .hero-content {
             text-align: center;
-            padding: 0 20px;
             max-width: 900px;
             z-index: 2;
-            margin-top: 80px;
+            margin-top: 60px;
         }
         
-        .banner-content h1 {
+        .hero h1 {
             font-size: 5rem;
             margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             letter-spacing: 3px;
-            animation: fadeInDown 1.5s ease;
             color: var(--accent);
-            text-transform: uppercase;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.1;
         }
         
-        .banner-content h1 span {
+        .hero h1 span {
             color: var(--secondary);
             display: block;
             font-size: 6rem;
             margin-top: 10px;
         }
         
-        .banner-content p {
-            font-size: 1.8rem;
+        .hero p {
+            font-size: 1.5rem;
             margin-bottom: 40px;
-            animation: fadeInUp 1.5s ease;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
             max-width: 700px;
             margin: 0 auto 50px;
             color: #ddd;
         }
         
-        .banner-btns {
+        .hero-btns {
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -194,11 +239,9 @@
             transform: translateY(-5px);
         }
         
-        /* Profile Section */
-        .profile-section {
-            padding: 120px 10%;
-            background: rgba(10, 15, 30, 0.8);
-            text-align: center;
+        /* Featured Posts */
+        .featured-posts {
+            padding: 100px 10%;
         }
         
         .section-title {
@@ -207,7 +250,7 @@
             margin-bottom: 60px;
             color: var(--accent);
             position: relative;
-            text-transform: uppercase;
+            font-family: 'Playfair Display', serif;
             letter-spacing: 2px;
         }
         
@@ -223,167 +266,287 @@
             border-radius: 2px;
         }
         
-        .profile-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
         }
         
-        .profile-card {
-            background: rgba(30, 40, 60, 0.7);
-            border-radius: 20px;
-            padding: 40px;
-            width: 100%;
-            max-width: 500px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(0, 225, 255, 0.2);
-            backdrop-filter: blur(10px);
-        }
-        
-        .profile-icon {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 5px solid var(--accent);
-            box-shadow: 0 0 25px rgba(0, 225, 255, 0.4);
-            overflow: hidden;
-        }
-        
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .profile-icon:hover .profile-img {
-            transform: scale(1.1);
-        }
-        
-        .profile-info h3 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-        
-        .profile-info p {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            line-height: 1.8;
-            color: #ccc;
-        }
-        
-        .bike-stats {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 30px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .stat-item {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 120px;
-        }
-        
-        .stat-item .number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            display: block;
-        }
-        
-        .stat-item .label {
-            font-size: 1rem;
-            color: #aaa;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* Video Section */
-        .video-section {
-            padding: 100px 10%;
-            background: rgba(15, 20, 35, 0.9);
-            text-align: center;
-        }
-        
-        .video-container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
+        .post-card {
+            background: var(--blog-card);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
-            border: 3px solid var(--secondary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 225, 255, 0.1);
         }
         
-        .video-container iframe {
+        .post-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 225, 255, 0.2);
+            border-color: rgba(0, 225, 255, 0.3);
+        }
+        
+        .post-img {
             width: 100%;
-            height: 500px;
-            border: none;
-            display: block;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--secondary);
         }
         
-        .channel-link {
+        .post-content {
+            padding: 30px;
+        }
+        
+        .post-category {
             display: inline-block;
-            margin-top: 40px;
-            padding: 15px 40px;
             background: var(--secondary);
             color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 77, 0, 0.4);
-            animation: pulse 2s infinite;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
         
-        .channel-link:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 77, 0, 0.6);
-            background: #ff5500;
-            animation: none;
+        .post-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
         }
         
-        .channel-link i {
+        .post-excerpt {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             margin-right: 10px;
+            border: 2px solid var(--accent);
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            padding: 100px 10%;
+            background: rgba(10, 15, 30, 0.8);
+            text-align: center;
+        }
+        
+        .newsletter-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--blog-card);
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 225, 255, 0.1);
+        }
+        
+        .newsletter h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .newsletter p {
+            color: #ccc;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .subscribe-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .subscribe-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border-radius: 50px 0 0 50px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .subscribe-form input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .subscribe-form button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 50px 50px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .subscribe-form button:hover {
+            background: #ff5500;
+        }
+        
+        /* Categories */
+        .categories {
+            padding: 100px 10%;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .category-card {
+            background: var(--blog-card);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 225, 255, 0.1);
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 225, 255, 0.2);
+            border-color: rgba(0, 225, 255, 0.3);
+        }
+        
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 225, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .category-count {
+            background: var(--secondary);
+            color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
         }
         
         /* Footer */
         footer {
-            text-align: center;
-            padding: 50px 20px 30px;
+            padding: 80px 10% 30px;
             background: var(--dark);
             border-top: 2px solid var(--secondary);
         }
         
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .footer-col p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
         .social-links {
             display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-bottom: 30px;
+            gap: 15px;
+            margin-top: 20px;
         }
         
         .social-links a {
-            width: 60px;
-            height: 60px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--accent);
-            font-size: 1.8rem;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
         }
         
@@ -394,9 +557,11 @@
         }
         
         .copyright {
-            font-size: 1.1rem;
-            color: #aaa;
-            margin-top: 20px;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #777;
+            font-size: 1rem;
         }
         
         /* Animations */
@@ -418,11 +583,11 @@
         
         /* Responsive Design */
         @media (max-width: 992px) {
-            .banner-content h1 {
+            .hero h1 {
                 font-size: 4rem;
             }
             
-            .banner-content h1 span {
+            .hero h1 span {
                 font-size: 4.5rem;
             }
         }
@@ -436,21 +601,32 @@
             
             nav ul {
                 margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             nav ul li {
-                margin: 0 10px;
+                margin: 10px;
             }
             
-            .banner-content h1 {
+            .search-bar {
+                margin: 15px auto 0;
+                width: 90%;
+            }
+            
+            .search-bar input {
+                width: 100%;
+            }
+            
+            .hero h1 {
                 font-size: 2.5rem;
             }
             
-            .banner-content h1 span {
+            .hero h1 span {
                 font-size: 3rem;
             }
             
-            .banner-content p {
+            .hero p {
                 font-size: 1.3rem;
             }
             
@@ -458,18 +634,23 @@
                 font-size: 2.2rem;
             }
             
-            .video-container iframe {
-                height: 300px;
-            }
-            
-            .banner-btns {
+            .hero-btns {
                 flex-direction: column;
                 gap: 15px;
             }
             
-            .profile-icon {
-                width: 150px;
-                height: 150px;
+            .subscribe-form {
+                flex-direction: column;
+            }
+            
+            .subscribe-form input {
+                border-radius: 50px;
+                margin-bottom: 15px;
+            }
+            
+            .subscribe-form button {
+                border-radius: 50px;
+                padding: 15px;
             }
         }
     </style>
@@ -478,91 +659,192 @@
     <!-- Header -->
     <header>
         <a href="#" class="logo">
-            <i class="fas fa-motorcycle"></i>MD SAMAUN
+            <i class="fas fa-blog"></i>BLOGOSPHERE
         </a>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#profile">Profile</a></li>
-                <li><a href="#videos">Videos</a></li>
+                <li><a href="#posts">Posts</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search articles...">
+            <i class="fas fa-search"></i>
+        </div>
     </header>
 
-    <!-- Banner Section -->
-    <section class="banner-container" id="home">
-        <div class="banner-content">
-            <h1>PROFESSIONAL<br><span>BIKE RIDER</span></h1>
-            <p>Pushing limits and conquering roads with passion and precision</p>
-            <div class="banner-btns">
-                <a href="#videos" class="btn btn-primary">Watch Videos</a>
-                <a href="#profile" class="btn btn-outline">My Profile</a>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>EXPLORE THE<br><span>WORLD OF IDEAS</span></h1>
+            <p>Where insightful perspectives meet compelling narratives in the digital age</p>
+            <div class="hero-btns">
+                <a href="#posts" class="btn btn-primary">Read Articles</a>
+                <a href="#newsletter" class="btn btn-outline">Subscribe</a>
             </div>
         </div>
     </section>
 
-    <!-- Profile Section -->
-    <section class="profile-section" id="profile">
-        <h2 class="section-title">My Profile</h2>
-        <div class="profile-container">
-            <div class="profile-card">
-                <div class="profile-icon">
-                    <!-- আপনার প্রোফাইল ছবি -->
-                    <img src="profile.jpg" alt="MD Samaun" class="profile-img">
+    <!-- Featured Posts -->
+    <section class="featured-posts" id="posts">
+        <h2 class="section-title">Featured Articles</h2>
+        <div class="posts-grid">
+            <!-- Post 1 -->
+            <div class="post-card">
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop" alt="Tech Innovation" class="post-img">
+                <div class="post-content">
+                    <span class="post-category">Technology</span>
+                    <h3 class="post-title">The Future of AI in Everyday Life</h3>
+                    <p class="post-excerpt">Exploring how artificial intelligence is transforming our daily routines and what to expect in the coming decade...</p>
+                    <div class="post-meta">
+                        <div class="author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author" class="author-img">
+                            <span>Alex Johnson</span>
+                        </div>
+                        <span>May 12, 2025</span>
+                    </div>
                 </div>
-                <div class="profile-info">
-                    <h3>MD SAMAUN</h3>
-                    <p>Professional bike rider with years of experience in stunt riding, racing, and long-distance touring. Passionate about exploring new terrains and pushing the limits of what's possible on two wheels.</p>
-                    
-                    <div class="bike-stats">
-                        <div class="stat-item">
-                            <span class="number">8+</span>
-                            <span class="label">Years</span>
+            </div>
+            
+            <!-- Post 2 -->
+            <div class="post-card">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop" alt="Culinary Arts" class="post-img">
+                <div class="post-content">
+                    <span class="post-category">Food & Travel</span>
+                    <h3 class="post-title">Culinary Journeys: Tastes of Southeast Asia</h3>
+                    <p class="post-excerpt">A gastronomic adventure through Thailand, Vietnam, and Malaysia, discovering hidden food gems...</p>
+                    <div class="post-meta">
+                        <div class="author">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Author" class="author-img">
+                            <span>Maria Garcia</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="number">150+</span>
-                            <span class="label">Events</span>
+                        <span>Apr 28, 2025</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Post 3 -->
+            <div class="post-card">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop" alt="Mindfulness" class="post-img">
+                <div class="post-content">
+                    <span class="post-category">Wellness</span>
+                    <h3 class="post-title">Mindfulness in a Digital World</h3>
+                    <p class="post-excerpt">Finding inner peace amidst the constant digital noise - practical techniques for modern life...</p>
+                    <div class="post-meta">
+                        <div class="author">
+                            <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Author" class="author-img">
+                            <span>David Kim</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="number">25k+</span>
-                            <span class="label">Km Ridden</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="number">50+</span>
-                            <span class="label">Awards</span>
-                        </div>
+                        <span>Jun 5, 2025</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Video Section -->
-    <section class="video-section" id="videos">
-        <h2 class="section-title">Latest Ride</h2>
-        <div class="video-container">
-            <!-- Autoplay video from your channel -->
-            <iframe 
-                src="https://www.youtube.com/embed/S0ZPEOl9SbM?autoplay=1&mute=1&enablejsapi=1&playsinline=1&rel=0" 
-                title="MD Samaun Bike Riding" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-            </iframe>
+    <!-- Newsletter -->
+    <section class="newsletter" id="newsletter">
+        <div class="newsletter-container">
+            <h3>Subscribe to Our Newsletter</h3>
+            <p>Get the latest articles, insights, and exclusive content delivered directly to your inbox</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email address">
+                <button type="submit">Subscribe</button>
+            </form>
         </div>
-        <a href="https://youtube.com/@biker_samaun?si=dUV3K_6QbM9yxUuj" class="channel-link" target="_blank">
-            <i class="fab fa-youtube"></i> Subscribe to My Channel
-        </a>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <h2 class="section-title">Explore Categories</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3 class="category-title">Technology</h3>
+                <span class="category-count">24 Articles</span>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3 class="category-title">Food & Travel</h3>
+                <span class="category-count">18 Articles</span>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3 class="category-title">Health & Wellness</h3>
+                <span class="category-count">15 Articles</span>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3 class="category-title">Art & Design</h3>
+                <span class="category-count">22 Articles</span>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer id="contact">
-        <div class="social-links">
-            <a href="https://www.facebook.com/share/1Eufg7fuYx/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/md_samaunsk?igsh=MWEwNXFxMjJ5anRzZw==" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/@biker_samaun?si=dUV3K_6QbM9yxUuj" target="_blank"><i class="fab fa-youtube"></i></a>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>About Blogosphere</h4>
+                <p>A premier digital destination for thought-provoking articles, expert insights, and compelling narratives across diverse topics.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Blog Posts</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Categories</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Popular Categories</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Technology Trends</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Culinary Adventures</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Mental Wellness</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Sustainable Living</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Creative Arts</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Innovation Street, Tech City</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> info@blogosphere.com</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</a></li>
+                </ul>
+            </div>
         </div>
-        <p class="copyright">© 2025 MD SAMAUN | Professional Bike Rider</p>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Blogosphere. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--secondary);"></i> for the digital world</p>
+        </div>
     </footer>
 
     <script>
@@ -572,9 +854,11 @@
             if (window.scrollY > 100) {
                 header.style.background = "rgba(15, 23, 42, 0.98)";
                 header.style.padding = "10px 5%";
+                header.style.boxShadow = "0 5px 20px rgba(0, 0, 0, 0.3)";
             } else {
                 header.style.background = "rgba(15, 23, 42, 0.95)";
                 header.style.padding = "15px 5%";
+                header.style.boxShadow = "0 5px 20px rgba(0, 0, 0, 0.3)";
             }
         });
         
@@ -589,15 +873,22 @@
             });
         });
         
-        // Video autoplay fix for mobile devices
-        function initVideo() {
-            const videoFrame = document.querySelector('.video-container iframe');
-            if (videoFrame) {
-                videoFrame.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-            }
-        }
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
         
-        window.addEventListener('load', initVideo);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.post-card, .category-card').forEach(card => {
+            observer.observe(card);
+        });
     </script>
 </body>
 </html>
