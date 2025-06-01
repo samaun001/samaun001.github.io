@@ -14,15 +14,15 @@
         }
         
         :root {
-            --primary: #1a1a1a;
-            --secondary: #c00;
-            --accent: #ffd700;
-            --dark: #0c0c0c;
-            --light: #f0f0f0;
+            --primary: #0f172a;
+            --secondary: #ff4d00;
+            --accent: #00e1ff;
+            --dark: #0a0f1f;
+            --light: #e6f7ff;
         }
         
         body {
-            background: linear-gradient(135deg, #0c0c0c, #1a1a1a, #0c0c0c);
+            background: linear-gradient(135deg, #0a0f1f, #0f172a, #0a0f1f);
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
@@ -35,7 +35,7 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(12, 12, 12, 0.95);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 5%;
             display: flex;
@@ -174,13 +174,13 @@
         .btn-primary {
             background: var(--secondary);
             color: white;
-            box-shadow: 0 5px 15px rgba(204, 0, 0, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 77, 0, 0.4);
         }
         
         .btn-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(204, 0, 0, 0.6);
-            background: #d00;
+            box-shadow: 0 8px 20px rgba(255, 77, 0, 0.6);
+            background: #ff5500;
         }
         
         .btn-outline {
@@ -190,14 +190,14 @@
         }
         
         .btn-outline:hover {
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(0, 225, 255, 0.1);
             transform: translateY(-5px);
         }
         
         /* Profile Section */
         .profile-section {
             padding: 120px 10%;
-            background: rgba(10, 10, 10, 0.8);
+            background: rgba(10, 15, 30, 0.8);
             text-align: center;
         }
         
@@ -232,13 +232,13 @@
         }
         
         .profile-card {
-            background: rgba(30, 30, 30, 0.7);
+            background: rgba(30, 40, 60, 0.7);
             border-radius: 20px;
             padding: 40px;
             width: 100%;
             max-width: 500px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(0, 225, 255, 0.2);
             backdrop-filter: blur(10px);
         }
         
@@ -251,7 +251,7 @@
             align-items: center;
             justify-content: center;
             border: 5px solid var(--accent);
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 0 25px rgba(0, 225, 255, 0.4);
             overflow: hidden;
         }
         
@@ -312,7 +312,7 @@
         /* Video Section */
         .video-section {
             padding: 100px 10%;
-            background: rgba(15, 15, 15, 0.9);
+            background: rgba(15, 20, 35, 0.9);
             text-align: center;
         }
         
@@ -344,14 +344,14 @@
             font-size: 1.3rem;
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(204, 0, 0, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 77, 0, 0.4);
             animation: pulse 2s infinite;
         }
         
         .channel-link:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(204, 0, 0, 0.6);
-            background: #d00;
+            box-shadow: 0 8px 20px rgba(255, 77, 0, 0.6);
+            background: #ff5500;
             animation: none;
         }
         
@@ -550,7 +550,7 @@
                 allowfullscreen>
             </iframe>
         </div>
-        <a href="https://www.youtube.com/@bksamaun" class="channel-link" target="_blank">
+        <a href="https://youtube.com/@biker_samaun?si=dUV3K_6QbM9yxUuj" class="channel-link" target="_blank">
             <i class="fab fa-youtube"></i> Subscribe to My Channel
         </a>
     </section>
@@ -558,10 +558,9 @@
     <!-- Footer -->
     <footer id="contact">
         <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.youtube.com/@bksamaun" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/share/1Eufg7fuYx/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/md_samaunsk?igsh=MWEwNXFxMjJ5anRzZw==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@biker_samaun?si=dUV3K_6QbM9yxUuj" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
         <p class="copyright">© 2025 MD SAMAUN | Professional Bike Rider</p>
     </footer>
@@ -571,10 +570,10 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.background = "rgba(10, 10, 10, 0.98)";
+                header.style.background = "rgba(15, 23, 42, 0.98)";
                 header.style.padding = "10px 5%";
             } else {
-                header.style.background = "rgba(12, 12, 12, 0.95)";
+                header.style.background = "rgba(15, 23, 42, 0.95)";
                 header.style.padding = "15px 5%";
             }
         });
