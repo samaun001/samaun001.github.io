@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MD Samaun, professional bike rider from Bangladesh, showcasing stunt riding, racing, and touring. Follow my journey on YouTube, Instagram, and Facebook.">
-    <meta name="keywords" content="MD Samaun, bike rider, stunt riding, motorcycle racing, Bangladesh biker">
+    <meta name="description" content="MD Samaun, professional bike rider from India, showcasing stunt riding, racing, and touring. Follow my journey on YouTube, Instagram, and Facebook.">
+    <meta name="keywords" content="MD Samaun, bike rider, stunt riding, motorcycle racing, Indian biker">
     <meta property="og:title" content="MD Samaun - Professional Bike Rider">
     <meta property="og:description" content="Explore the thrilling world of MD Samaun, a professional bike rider with over 8 years of experience in stunts and racing.">
     <meta property="og:image" content="profile.jpg">
@@ -25,18 +25,19 @@
         }
 
         :root {
-            --primary: #0f172a;
-            --secondary: #ff4d00;
-            --accent: #00e1ff;
-            --highlight: #FFC107;
-            --dark: #0a0f1f;
-            --light: #e6f7ff;
+            --primary: #2c2c54; /* Deep purple for unicorn theme */
+            --secondary: #ff6f91; /* Unicorn pink */
+            --accent: #54a0ff; /* Unicorn blue */
+            --highlight: #ffcc00; /* Unicorn yellow */
+            --dark: #333; /* For text on white background */
+            --light: #fff; /* White background */
             --font-primary: 'Russo One', sans-serif;
+            --unicorn-gradient: linear-gradient(135deg, #ff9ff3, #54a0ff, #feca57); /* Unicorn pastel gradient */
         }
 
         body {
-            background: linear-gradient(135deg, #0a0f1f, #0f172a, #0a0f1f);
-            color: #fff;
+            background: var(--light);
+            color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
             min-height: 100vh;
@@ -52,7 +53,7 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 5%;
             display: flex;
@@ -72,7 +73,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--primary);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -96,7 +97,7 @@
         }
 
         nav ul li a {
-            color: #fff;
+            color: var(--dark);
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
@@ -152,8 +153,8 @@
             padding: 12px 20px;
             border: 2px solid var(--accent);
             border-radius: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--dark);
             font-size: 1.1rem;
             outline: none;
             width: 100%;
@@ -161,19 +162,19 @@
         }
 
         .search-container input[type="text"]::placeholder {
-            color: #ccc;
+            color: #888;
         }
 
         .search-container input[type="text"]:focus {
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 10px rgba(0, 225, 255, 0.3);
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 10px rgba(84, 160, 255, 0.3);
         }
 
         .search-container button {
             padding: 12px 20px;
             border: none;
             background: var(--accent);
-            color: var(--dark);
+            color: var(--light);
             border-radius: 0 50px 50px 0;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -192,7 +193,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: url('https://images.unsplash.com/photo-1502741126168-b0b445172795?q=80&w=1470&auto=format&fit=crop') no-repeat center center/cover;
+            background: var(--unicorn-gradient);
             background-attachment: fixed;
         }
 
@@ -202,7 +203,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(255, 255, 255, 0.7);
             z-index: 1;
         }
 
@@ -217,10 +218,10 @@
         .banner-content h1 {
             font-size: 5rem;
             margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
             letter-spacing: 3px;
             animation: fadeInDown 1.5s ease;
-            color: var(--accent);
+            color: var(--primary);
             text-transform: uppercase;
         }
 
@@ -235,10 +236,10 @@
             font-size: 1.8rem;
             margin-bottom: 40px;
             animation: fadeInUp 1.5s ease;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
             max-width: 700px;
             margin: 0 auto 50px;
-            color: var(--light);
+            color: var(--dark);
         }
 
         .banner-btns {
@@ -265,13 +266,13 @@
 
         .btn-primary {
             background: var(--secondary);
-            color: white;
-            box-shadow: 0 5px 15px rgba(255, 77, 0, 0.4);
+            color: var(--light);
+            box-shadow: 0 5px 15px rgba(255, 111, 145, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.6);
+            box-shadow: 0 8px 20px rgba(255, 204, 0, 0.6);
             background: var(--highlight);
         }
 
@@ -282,21 +283,21 @@
         }
 
         .btn-outline:hover {
-            background: rgba(0, 225, 255, 0.1);
+            background: rgba(84, 160, 255, 0.1);
             transform: translateY(-5px);
         }
 
         /* Profile Section */
         .profile-section {
             padding: 120px 10%;
-            background: rgba(10, 15, 30, 0.8);
+            background: var(--light);
             text-align: center;
         }
 
         .section-title {
             font-size: 2.8rem;
             margin-bottom: 60px;
-            color: var(--accent);
+            color: var(--primary);
             position: relative;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -323,13 +324,13 @@
         }
 
         .profile-card {
-            background: rgba(30, 40, 60, 0.7);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
             padding: 40px;
             width: 100%;
             max-width: 500px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(0, 225, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--accent);
             backdrop-filter: blur(10px);
         }
 
@@ -342,7 +343,7 @@
             align-items: center;
             justify-content: center;
             border: 5px solid var(--accent);
-            box-shadow: 0 0 25px rgba(0, 225, 255, 0.4);
+            box-shadow: 0 0 25px rgba(84, 160, 255, 0.4);
             overflow: hidden;
         }
 
@@ -360,14 +361,14 @@
         .profile-info h3 {
             font-size: 2.2rem;
             margin-bottom: 20px;
-            color: var(--accent);
+            color: var(--primary);
         }
 
         .profile-info p {
             font-size: 1.1rem;
             margin-bottom: 25px;
             line-height: 1.8;
-            color: #ccc;
+            color: #666;
         }
 
         .bike-stats {
@@ -380,7 +381,7 @@
 
         .stat-item {
             text-align: center;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.05);
             padding: 15px;
             border-radius: 10px;
             min-width: 120px;
@@ -395,7 +396,7 @@
 
         .stat-item .label {
             font-size: 1rem;
-            color: #aaa;
+            color: #888;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -403,7 +404,7 @@
         /* Testimonial Section */
         .testimonial-section {
             padding: 100px 10%;
-            background: rgba(15, 20, 35, 0.9);
+            background: var(--light);
             text-align: center;
         }
 
@@ -415,19 +416,19 @@
         }
 
         .testimonial-card {
-            background: rgba(30, 40, 60, 0.7);
+            background: rgba(255, 255, 255, 0.9);
             padding: 30px;
             border-radius: 15px;
             max-width: 400px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            color: #ccc;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            color: #666;
             font-style: italic;
         }
 
         /* Video Section */
         .video-section {
             padding: 100px 10%;
-            background: rgba(15, 20, 35, 0.9);
+            background: var(--light);
             text-align: center;
             position: relative;
         }
@@ -438,7 +439,7 @@
             position: relative;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
             border: 3px solid var(--secondary);
         }
 
@@ -479,19 +480,19 @@
             margin-top: 40px;
             padding: 15px 40px;
             background: var(--secondary);
-            color: white;
+            color: var(--light);
             text-decoration: none;
             border-radius: 50px;
             font-size: 1.3rem;
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 77, 0, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 111, 145, 0.4);
             animation: pulse 2s infinite;
         }
 
         .channel-link:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.6);
+            box-shadow: 0 8px 20px rgba(255, 204, 0, 0.6);
             background: var(--highlight);
             animation: none;
         }
@@ -504,7 +505,7 @@
         footer {
             text-align: center;
             padding: 50px 20px 30px;
-            background: var(--dark);
+            background: var(--light);
             border-top: 2px solid var(--secondary);
         }
 
@@ -515,7 +516,7 @@
 
         .contact-form h3 {
             font-size: 2rem;
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 20px;
         }
 
@@ -525,8 +526,8 @@
             margin-bottom: 20px;
             border-radius: 10px;
             border: 2px solid var(--accent);
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--dark);
             font-size: 1.1rem;
         }
 
@@ -546,7 +547,7 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -557,7 +558,7 @@
 
         .social-links a:hover {
             background: var(--accent);
-            color: var(--dark);
+            color: var(--light);
             transform: translateY(-5px);
         }
 
@@ -571,7 +572,7 @@
         .share-buttons a {
             padding: 10px 20px;
             background: var(--secondary);
-            color: #fff;
+            color: var(--light);
             border-radius: 50px;
             text-decoration: none;
             font-size: 1rem;
@@ -583,7 +584,7 @@
 
         .copyright {
             font-size: 1.1rem;
-            color: #aaa;
+            color: #888;
             margin-top: 20px;
         }
 
@@ -649,7 +650,7 @@
                 top: 80px;
                 left: 0;
                 width: 100%;
-                background: var(--dark);
+                background: var(--light);
                 padding: 20px;
             }
 
@@ -733,7 +734,7 @@
         </div>
         <!-- Search Bar -->
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="সার্চ করুন...">
+            <input type="text" id="searchInput" placeholder="Search...">
             <button onclick="searchContent()"><i class="fas fa-search"></i></button>
         </div>
     </header>
@@ -743,17 +744,17 @@
         <div class="banner-overlay"></div>
         <div class="banner-content">
             <h1>PROFESSIONAL<br><span>BIKE RIDER</span></h1>
-            <p>প্যাশন এবং নিখুঁতভাবে রাস্তা জয় করছি</p>
+            <p>Conquering the roads with passion and precision</p>
             <div class="banner-btns">
-                <a href="#videos" class="btn btn-primary">ভিডিও দেখুন</a>
-                <a href="#profile" class="btn btn-outline">আমার প্রোফাইল</a>
+                <a href="#videos" class="btn btn-primary">Watch Videos</a>
+                <a href="#profile" class="btn btn-outline">My Profile</a>
             </div>
         </div>
     </section>
 
     <!-- Profile Section -->
     <section class="profile-section" id="profile">
-        <h2 class="section-title">আমার প্রোফাইল</h2>
+        <h2 class="section-title">My Profile</h2>
         <div class="profile-container">
             <div class="profile-card">
                 <div class="profile-icon">
@@ -761,23 +762,23 @@
                 </div>
                 <div class="profile-info">
                     <h3>MD SAMAUN</h3>
-                    <p>আমি এমডি সমাউন, বাংলাদেশের [আপনার শহর] থেকে একজন প্রফেশনাল বাইক রাইডার। ৮ বছরেরও বেশি সময় ধরে স্টান্ট রাইডিং এবং লং-ডিস্ট্যান্স ট্যুরিংয়ে অভিজ্ঞ। আমি ইয়ামাহা আর১৫ মাস্টার করেছি এবং ২০২৩ সালে [নির্দিষ্ট ইভেন্টের নাম] জিতেছি। আমার জীবনের মূলমন্ত্র: "রাইড হার্ড, ড্রিম বিগ।"</p>
+                    <p>I am MD Samaun, a professional bike rider from [Your City], India. With over 8 years of experience in stunt riding and long-distance touring, I have mastered the Yamaha R15 and won [Specific Event Name] in 2023. My life motto: "Ride Hard, Dream Big."</p>
                     <div class="bike-stats">
                         <div class="stat-item">
                             <span class="number">8</span>
-                            <span class="label">বছর</span>
+                            <span class="label">Years</span>
                         </div>
                         <div class="stat-item">
                             <span class="number">150</span>
-                            <span class="label">ইভেন্ট</span>
+                            <span class="label">Events</span>
                         </div>
                         <div class="stat-item">
                             <span class="number">25000</span>
-                            <span class="label">কিমি রাইড</span>
+                            <span class="label">KM Ridden</span>
                         </div>
                         <div class="stat-item">
                             <span class="number">50</span>
-                            <span class="label">পুরস্কার</span>
+                            <span class="label">Awards</span>
                         </div>
                     </div>
                 </div>
@@ -787,20 +788,20 @@
 
     <!-- Testimonial Section -->
     <section class="testimonial-section" id="testimonials">
-        <h2 class="section-title">মানুষের মতামত</h2>
+        <h2 class="section-title">What People Say</h2>
         <div class="testimonial-container">
             <div class="testimonial-card">
-                <p>"সমাউনের স্টান্টগুলো অবিশ্বাস্য! রাইডারদের জন্য সত্যিকারের প্রেরণা।" - [ফ্যানের নাম]</p>
+                <p>"Samaun’s stunts are unbelievable! A true inspiration for riders." - [Fan Name]</p>
             </div>
             <div class="testimonial-card">
-                <p>"তার নিখুঁত দক্ষতা এবং প্যাশন তাকে প্রতিটি ইভেন্টে আলাদা করে।" - [ইভেন্ট অর্গানাইজার]</p>
+                <p>"His skills and passion make him stand out at every event." - [Event Organizer]</p>
             </div>
         </div>
     </section>
 
     <!-- Video Section -->
     <section class="video-section" id="videos">
-        <h2 class="section-title">সাম্প্রতিক রাইড</h2>
+        <h2 class="section-title">Recent Rides</h2>
         <div class="video-container">
             <div class="video-overlay" onclick="toggleVideo()">
                 <i class="fas fa-play-circle"></i>
@@ -814,19 +815,19 @@
             </iframe>
         </div>
         <a href="https://youtube.com/@biker_samaun?si=dUV3K_6QbM9yxUuj" class="channel-link" target="_blank">
-            <i class="fab fa-youtube"></i> আমার চ্যানেলে সাবস্ক্রাইব করুন
+            <i class="fab fa-youtube"></i> Subscribe to My Channel
         </a>
     </section>
 
     <!-- Footer -->
     <footer id="contact" role="contentinfo">
         <div class="contact-form">
-            <h3>যোগাযোগ করুন</h3>
+            <h3>Contact Me</h3>
             <form action="https://formspree.io/f/your-form-id" method="POST">
-                <input type="text" name="name" placeholder="আপনার নাম" required>
-                <input type="email" name="email" placeholder="আপনার ইমেইল" required>
-                <textarea name="message" placeholder="আপনার বার্তা" required></textarea>
-                <button type="submit" class="btn btn-primary">বার্তা পাঠান</button>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
             </form>
         </div>
         <div class="social-links">
@@ -835,10 +836,10 @@
             <a href="https://youtube.com/@biker_samaun?si=dUV3K_6QbM9yxUuj" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
         <div class="share-buttons">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com" target="_blank"><i class="fab fa-facebook-f"></i> শেয়ার করুন</a>
-            <a href="https://twitter.com/intent/tweet?url=https://yourwebsite.com&text=Check out MD Samaun, Professional Bike Rider!" target="_blank"><i class="fab fa-twitter"></i> টুইট করুন</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com" target="_blank"><i class="fab fa-facebook-f"></i> Share</a>
+            <a href="https://twitter.com/intent/tweet?url=https://yourwebsite.com&text=Check out MD Samaun, Professional Bike Rider!" target="_blank"><i class="fab fa-twitter"></i> Tweet</a>
         </div>
-        <p class="copyright">© ২০২৫ MD SAMAUN | প্রফেশনাল বাইক রাইডার</p>
+        <p class="copyright">© 2025 MD SAMAUN | Professional Bike Rider</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.8/countUp.min.js"></script>
@@ -847,10 +848,10 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.background = "rgba(15, 23, 42, 0.98)";
+                header.style.background = "rgba(255, 255, 255, 0.98)";
                 header.style.padding = "10px 5%";
             } else {
-                header.style.background = "rgba(15, 23, 42, 0.95)";
+                header.style.background = "rgba(255, 255, 255, 0.95)";
                 header.style.padding = "15px 5%";
             }
         });
@@ -909,7 +910,7 @@
                 const text = section.textContent.toLowerCase();
                 if (text.includes(query)) {
                     section.scrollIntoView({ behavior: 'smooth' });
-                    section.style.background = 'rgba(255, 193, 7, 0.2)';
+                    section.style.background = 'rgba(255, 204, 0, 0.2)';
                     setTimeout(() => {
                         section.style.background = '';
                     }, 2000);
@@ -918,7 +919,7 @@
             });
 
             if (!found) {
-                alert('কোনো ফলাফল পাওয়া যায়নি!');
+                alert('No results found!');
             }
         }
 
