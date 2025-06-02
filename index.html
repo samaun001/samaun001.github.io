@@ -19,14 +19,123 @@
             --accent: #00e1ff;
             --dark: #0a0f1f;
             --light: #e6f7ff;
+            --sky-gradient: linear-gradient(to bottom, #001d3d, #003566, #001d3d);
         }
         
         body {
-            background: linear-gradient(135deg, #0a0f1f, #0f172a, #0a0f1f);
+            background: var(--sky-gradient);
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
             min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Animated Background */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .sky {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70%;
+            background: var(--sky-gradient);
+            animation: skyAnimation 30s infinite alternate;
+        }
+        
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70%;
+            opacity: 0.3;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        
+        .hills {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            overflow: hidden;
+        }
+        
+        .hill {
+            position: absolute;
+            bottom: 0;
+            width: 300%;
+            height: 100%;
+            background: linear-gradient(to top, #0a0f1f, #1a1f2f, #2a2f3f);
+            border-radius: 50% 50% 0 0;
+            animation: moveHill 60s infinite linear;
+        }
+        
+        .hill:nth-child(1) {
+            left: -100%;
+            height: 80%;
+            background: linear-gradient(to top, #0a0f1f, #1a1f2f);
+            animation-duration: 80s;
+        }
+        
+        .hill:nth-child(2) {
+            left: -100%;
+            height: 70%;
+            background: linear-gradient(to top, #0f172a, #1f243a);
+            animation-duration: 60s;
+            animation-delay: -10s;
+        }
+        
+        .hill:nth-child(3) {
+            left: -100%;
+            height: 60%;
+            background: linear-gradient(to top, #141b2f, #242b3f);
+            animation-duration: 40s;
+            animation-delay: -20s;
+        }
+        
+        .road {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20%;
+            background: linear-gradient(to top, #111, #222, #111);
+            border-top: 2px solid var(--secondary);
+            box-shadow: 0 -10px 20px rgba(0,0,0,0.5);
+        }
+        
+        .road-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: repeating-linear-gradient(
+                to right,
+                #ff4d00 0%,
+                #ff4d00 10%,
+                transparent 10%,
+                transparent 20%
+            );
+            background-size: 100px 100%;
+            animation: moveLine 3s infinite linear;
         }
         
         /* Header & Navigation */
@@ -111,7 +220,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9));
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
         }
         
         .banner-content {
@@ -137,6 +246,7 @@
             display: block;
             font-size: 6rem;
             margin-top: 10px;
+            text-shadow: 0 0 15px rgba(255, 77, 0, 0.7);
         }
         
         .banner-content p {
@@ -199,6 +309,11 @@
             padding: 120px 10%;
             background: rgba(10, 15, 30, 0.8);
             text-align: center;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+            border-top: 2px solid rgba(0, 225, 255, 0.2);
+            border-bottom: 2px solid rgba(0, 225, 255, 0.2);
         }
         
         .section-title {
@@ -240,6 +355,12 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border: 2px solid rgba(0, 225, 255, 0.2);
             backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 225, 255, 0.3);
         }
         
         .profile-icon {
@@ -293,6 +414,12 @@
             padding: 15px;
             border-radius: 10px;
             min-width: 120px;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            background: rgba(0, 0, 0, 0.6);
+            transform: translateY(-5px);
         }
         
         .stat-item .number {
@@ -314,6 +441,9 @@
             padding: 100px 10%;
             background: rgba(15, 20, 35, 0.9);
             text-align: center;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(5px);
         }
         
         .video-container {
@@ -324,6 +454,11 @@
             overflow: hidden;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
             border: 3px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+        
+        .video-container:hover {
+            transform: scale(1.02);
         }
         
         .video-container iframe {
@@ -365,6 +500,8 @@
             padding: 50px 20px 30px;
             background: var(--dark);
             border-top: 2px solid var(--secondary);
+            position: relative;
+            z-index: 10;
         }
         
         .social-links {
@@ -390,7 +527,7 @@
         .social-links a:hover {
             background: var(--accent);
             color: var(--dark);
-            transform: translateY(-5px);
+            transform: translateY(-5px) rotate(10deg);
         }
         
         .copyright {
@@ -414,6 +551,28 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
+        }
+        
+        @keyframes moveHill {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        
+        @keyframes moveLine {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 0; }
+        }
+        
+        @keyframes skyAnimation {
+            0% { background: linear-gradient(to bottom, #001d3d, #003566, #001d3d); }
+            50% { background: linear-gradient(to bottom, #001a35, #002e58, #001a35); }
+            100% { background: linear-gradient(to bottom, #002144, #003d70, #002144); }
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
         }
         
         /* Responsive Design */
@@ -475,6 +634,20 @@
     </style>
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="background-container">
+        <div class="sky"></div>
+        <div class="stars" id="stars-container"></div>
+        <div class="hills">
+            <div class="hill"></div>
+            <div class="hill"></div>
+            <div class="hill"></div>
+        </div>
+        <div class="road">
+            <div class="road-line"></div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <a href="#" class="logo">
@@ -509,7 +682,7 @@
             <div class="profile-card">
                 <div class="profile-icon">
                     <!-- আপনার প্রোফাইল ছবি -->
-                    <img src="profile.jpg" alt="MD Samaun" class="profile-img">
+                    <img src="https://images.unsplash.com/photo-1513094735237-8f2714d57c13?q=80&w=1935&auto=format&fit=crop" alt="MD Samaun" class="profile-img">
                 </div>
                 <div class="profile-info">
                     <h3>MD SAMAUN</h3>
@@ -566,6 +739,19 @@
     </footer>
 
     <script>
+        // Create stars
+        const starsContainer = document.getElementById('stars-container');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 70 + '%';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            starsContainer.appendChild(star);
+        }
+
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
