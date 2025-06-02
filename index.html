@@ -32,6 +32,10 @@
             --dark: #0a0f1f;
             --light: #e6f7ff;
             --font-primary: 'Russo One', sans-serif;
+            --twilight1: #ff6f61; /* Twilight glow: Coral */
+            --twilight2: #d4a5a5; /* Twilight glow: Soft pink */
+            --pastel1: #a3bffa; /* Pastel: Light blue */
+            --pastel2: #f5f5f5; /* Pastel: Off-white */
         }
 
         body {
@@ -132,6 +136,48 @@
             display: none;
         }
 
+        /* Search Bar Styling */
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px 15px;
+            border: 2px solid var(--accent);
+            border-radius: 50px 0 0 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .search-container input[type="text"]::placeholder {
+            color: #ccc;
+        }
+
+        .search-container input[type="text"]:focus {
+            width: 250px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .search-container button {
+            padding: 10px 15px;
+            border: none;
+            background: var(--accent);
+            color: var(--dark);
+            border-radius: 0 50px 50px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-container button:hover {
+            background: var(--highlight);
+        }
+
         /* Banner Section */
         .banner-container {
             width: 100%;
@@ -141,7 +187,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: url('bike-riding-bg.jpg') no-repeat center center/cover;
+            background: linear-gradient(135deg, var(--twilight1), var(--twilight2), var(--pastel1), var(--pastel2));
             background-attachment: fixed;
         }
 
@@ -159,7 +205,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.8);
             letter-spacing: 3px;
             animation: fadeInDown 1.5s ease;
-            color: var(--accent);
+            color: var(--dark);
             text-transform: uppercase;
         }
 
@@ -177,7 +223,7 @@
             text-shadow: 0 2px 5px rgba(0,0,0,0.8);
             max-width: 700px;
             margin: 0 auto 50px;
-            color: #ddd;
+            color: var(--dark);
         }
 
         .banner-btns {
@@ -558,6 +604,14 @@
             .banner-content h1 span {
                 font-size: 4.5rem;
             }
+
+            .search-container input[type="text"] {
+                width: 150px;
+            }
+
+            .search-container input[type="text"]:focus {
+                width: 180px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -628,6 +682,19 @@
                 padding: 20px;
                 font-size: 1.2rem;
             }
+
+            .search-container {
+                margin-top: 10px;
+                margin-left: 0;
+            }
+
+            .search-container input[type="text"] {
+                width: 120px;
+            }
+
+            .search-container input[type="text"]:focus {
+                width: 150px;
+            }
         }
     </style>
 </head>
@@ -656,23 +723,28 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="সার্চ করুন...">
+            <button onclick="searchContent()"><i class="fas fa-search"></i></button>
+        </div>
     </header>
 
     <!-- Banner Section -->
     <section class="banner-container" id="home" role="main">
         <div class="banner-content">
             <h1>PROFESSIONAL<br><span>BIKE RIDER</span></h1>
-            <p>Pushing limits and conquering roads with passion and precision</p>
+            <p>প্যাশন এবং নিখুঁতভাবে রাস্তা জয় করছি</p>
             <div class="banner-btns">
-                <a href="#videos" class="btn btn-primary">Watch Videos</a>
-                <a href="#profile" class="btn btn-outline">My Profile</a>
+                <a href="#videos" class="btn btn-primary">ভিডিও দেখুন</a>
+                <a href="#profile" class="btn btn-outline">আমার প্রোফাইল</a>
             </div>
         </div>
     </section>
 
     <!-- Profile Section -->
     <section class="profile-section" id="profile">
-        <h2 class="section-title">My Profile</h2>
+        <h2 class="section-title">আমার প্রোফাইল</h2>
         <div class="profile-container">
             <div class="profile-card">
                 <div class="profile-icon">
@@ -680,23 +752,23 @@
                 </div>
                 <div class="profile-info">
                     <h3>MD SAMAUN</h3>
-                    <p>MD Samaun, a professional bike rider from [Your City], Bangladesh, with over 8 years of experience in stunt riding and long-distance touring. Known for mastering the Yamaha R15 and winning the [Specific Event Name] in 2023, I live by the motto: "Ride Hard, Dream Big."</p>
+                    <p>আমি এমডি সমাউন, বাংলাদেশের [আপনার শহর] থেকে একজন প্রফেশনাল বাইক রাইডার। ৮ বছরেরও বেশি সময় ধরে স্টান্ট রাইডিং এবং লং-ডিস্ট্যান্স ট্যুরিংয়ে অভিজ্ঞ। আমি ইয়ামাহা আর১৫ মাস্টার করেছি এবং ২০২৩ সালে [নির্দিষ্ট ইভেন্টের নাম] জিতেছি। আমার জীবনের মূলমন্ত্র: "রাইড হার্ড, ড্রিম বিগ।"</p>
                     <div class="bike-stats">
                         <div class="stat-item">
                             <span class="number">8</span>
-                            <span class="label">Years</span>
+                            <span class="label">বছর</span>
                         </div>
                         <div class="stat-item">
                             <span class="number">150</span>
-                            <span class="label">Events</span>
+                            <span class="label">ইভেন্ট</span>
                         </div>
                         <div class="stat-item">
                             <span class="number">25000</span>
-                            <span class="label">Km Ridden</span>
+                            <span class="label">কিমি রাইড</span>
                         </div>
                         <div class="stat-item">
                             <span class="number">50</span>
-                            <span class="label">Awards</span>
+                            <span class="label">পুরস্কার</span>
                         </div>
                     </div>
                 </div>
@@ -706,20 +778,20 @@
 
     <!-- Testimonial Section -->
     <section class="testimonial-section" id="testimonials">
-        <h2 class="section-title">What People Say</h2>
+        <h2 class="section-title">মানুষের মতামত</h2>
         <div class="testimonial-container">
             <div class="testimonial-card">
-                <p>"Samaun’s stunts are unreal! A true inspiration for riders." - [Fan Name]</p>
+                <p>"সমাউনের স্টান্টগুলো অবিশ্বাস্য! রাইডারদের জন্য সত্যিকারের প্রেরণা।" - [ফ্যানের নাম]</p>
             </div>
             <div class="testimonial-card">
-                <p>"His precision and passion make him a standout in every event." - [Event Organizer]</p>
+                <p>"তার নিখুঁত দক্ষতা এবং প্যাশন তাকে প্রতিটি ইভেন্টে আলাদা করে।" - [ইভেন্ট অর্গানাইজার]</p>
             </div>
         </div>
     </section>
 
     <!-- Video Section -->
     <section class="video-section" id="videos">
-        <h2 class="section-title">Latest Ride</h2>
+        <h2 class="section-title">সাম্প্রতিক রাইড</h2>
         <div class="video-container">
             <div class="video-overlay" onclick="toggleVideo()">
                 <i class="fas fa-play-circle"></i>
@@ -733,19 +805,19 @@
             </iframe>
         </div>
         <a href="https://youtube.com/@biker_samaun?si=dUV3K_6QbM9yxUuj" class="channel-link" target="_blank">
-            <i class="fab fa-youtube"></i> Subscribe to My Channel
+            <i class="fab fa-youtube"></i> আমার চ্যানেলে সাবস্ক্রাইব করুন
         </a>
     </section>
 
     <!-- Footer -->
     <footer id="contact" role="contentinfo">
         <div class="contact-form">
-            <h3>Contact Me</h3>
+            <h3>যোগাযোগ করুন</h3>
             <form action="https://formspree.io/f/your-form-id" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn btn-primary">Send Message</button>
+                <input type="text" name="name" placeholder="আপনার নাম" required>
+                <input type="email" name="email" placeholder="আপনার ইমেইল" required>
+                <textarea name="message" placeholder="আপনার বার্তা" required></textarea>
+                <button type="submit" class="btn btn-primary">বার্তা পাঠান</button>
             </form>
         </div>
         <div class="social-links">
@@ -754,10 +826,10 @@
             <a href="https://youtube.com/@biker_samaun?si=dUV3K_6QbM9yxUuj" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
         <div class="share-buttons">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com" target="_blank"><i class="fab fa-facebook-f"></i> Share</a>
-            <a href="https://twitter.com/intent/tweet?url=https://yourwebsite.com&text=Check out MD Samaun, Professional Bike Rider!" target="_blank"><i class="fab fa-twitter"></i> Tweet</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com" target="_blank"><i class="fab fa-facebook-f"></i> শেয়ার করুন</a>
+            <a href="https://twitter.com/intent/tweet?url=https://yourwebsite.com&text=Check out MD Samaun, Professional Bike Rider!" target="_blank"><i class="fab fa-twitter"></i> টুইট করুন</a>
         </div>
-        <p class="copyright">© 2025 MD SAMAUN | Professional Bike Rider</p>
+        <p class="copyright">© ২০২৫ MD SAMAUN | প্রফেশনাল বাইক রাইডার</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.8/countUp.min.js"></script>
@@ -817,6 +889,36 @@
         function toggleMenu() {
             document.querySelector('.mobile-nav').classList.toggle('active');
         }
+
+        // Search Functionality
+        function searchContent() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const sections = document.querySelectorAll('section');
+            let found = false;
+
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                    section.style.background = 'rgba(255, 193, 7, 0.2)';
+                    setTimeout(() => {
+                        section.style.background = '';
+                    }, 2000);
+                    found = true;
+                }
+            });
+
+            if (!found) {
+                alert('কোনো ফলাফল পাওয়া যায়নি!');
+            }
+        }
+
+        // Trigger search on Enter key
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchContent();
+            }
+        });
     </script>
 </body>
 </html>
