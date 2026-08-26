@@ -705,34 +705,7 @@
         }
     </style>
 </head>
-    <div id="ai-glow-cursor" style="position: fixed; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255, 77, 0, 0.15), transparent 70%); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); z-index: 9999; transition: transform 0.08s ease-out; display: none;"></div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-
-<script>
-// ১. মাউস গ্লো ইফেক্ট
-const glow = document.getElementById('ai-glow-cursor');
-if (window.matchMedia("(min-width: 768px)").matches) {
-  glow.style.display = 'block';
-  window.addEventListener('mousemove', (e) => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
-  });
-}
-
-// ২. থ্রি-ডি কার্ড অ্যানিমেশন
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll('.card, .project-card, #videos div, .service-card');
-  if (typeof VanillaTilt !== "undefined" && cards.length > 0) {
-    VanillaTilt.init(cards, {
-      max: 15,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.2,
-    });
-  }
-});
-</script>
+    
     
 <body>
     <!-- Header -->
@@ -1120,4 +1093,39 @@ async function sendMessage() {
   document.addEventListener('touchmove', onMove, { passive: false });
   document.addEventListener('touchend', onEnd);
 })();
+</script>
+<!-- Interactive Glow Cursor & Touch Effect -->
+<div id="ai-glow-cursor" style="position: fixed; width: 250px; height: 250px; background: radial-gradient(circle, rgba(255, 77, 0, 0.25), transparent 70%); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); z-index: 9999; display: none;"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+<script>
+// মাউস ও টাচ গ্লো ইফেক্ট
+const glow = document.getElementById('ai-glow-cursor');
+glow.style.display = 'block';
+
+window.addEventListener('mousemove', (e) => {
+  glow.style.left = e.clientX + 'px';
+  glow.style.top = e.clientY + 'px';
+});
+
+window.addEventListener('touchmove', (e) => {
+  if (e.touches.length > 0) {
+    glow.style.left = e.touches[0].clientX + 'px';
+    glow.style.top = e.touches[0].clientY + 'px';
+  }
+});
+
+// ৩ডি কার্ড অ্যানিমেশন
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll('.card, .project-card, section, .gallery-item');
+  if (typeof VanillaTilt !== "undefined" && cards.length > 0) {
+    VanillaTilt.init(cards, {
+      max: 12,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2,
+    });
+  }
+});
 </script>
