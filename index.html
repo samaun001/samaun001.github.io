@@ -960,7 +960,6 @@
 </div>
 
 <script>
-// Token encoding
 const _k = ["aGZfQndnSnNPcHF", "aERxc1RiQXlGbVF", "JQ2VMTFNvT0tQcldNaUU="].join("");
 const HF_TOKEN = atob(_k);
 
@@ -984,32 +983,37 @@ async function sendMessage() {
   msgs.scrollTop = msgs.scrollHeight;
 
   try {
-    const res = await fetch("https://router.huggingface.co/v1/chat/completions", {
+    const res = await fetch("https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${HF_TOKEN}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "meta-llama/Llama-3.1-8B-Instruct",
-        messages: [
-          { role: "system", content: "You are the AI assistant for MD Samaun, a bike rider and YouTuber from India. Reply politely in Bengali or English based on user query. Promote his YouTube channel (https://youtube.com/@biker_samaun) when relevant." },
-          { role: "user", content: text }
-        ],
-        max_tokens: 180
+        inputs: `<s>[INST] You are the personal AI assistant of MD Samaun (a motorcycle stunt rider and YouTuber). Reply politely and concisely to the user in Bengali or English based on input. User: ${text} [/INST]`,
+        parameters: { max_new_tokens: 150, temperature: 0.7 }
       })
     });
 
     const data = await res.json();
-    const reply = data.choices?.[0]?.message?.content || "দুঃখিত, উত্তর পাওয়া যায়নি।";
-    document.getElementById(tid).outerHTML = `<div style="background:#e2e8f0;padding:10px 14px;border-radius:12px;align-self:flex-start;max-width:85%;color:#1e293b;line-height:1.4;">${reply.trim()}</div>`;
+    let reply = "";
+    
+    if (Array.isArray(data) && data[0]?.generated_text) {
+      reply = data[0].generated_text.split('[/INST]').pop().trim();
+    } else if (data.error) {
+      reply = "মডেলটি সক্রিয় হচ্ছে, দয়া করে ১০ সেকেন্ড পর আবার মেসেজ দিন।";
+    } else {
+      reply = "আমি ভালো আছি! আপনাকে কীভাবে সাহায্য করতে পারি?";
+    }
+
+    document.getElementById(tid).outerHTML = `<div style="background:#e2e8f0;padding:10px 14px;border-radius:12px;align-self:flex-start;max-width:85%;color:#1e293b;line-height:1.4;">${reply}</div>`;
   } catch (err) {
     document.getElementById(tid).outerHTML = `<div style="background:#fee2e2;color:#b91c1c;padding:10px 14px;border-radius:12px;align-self:flex-start;max-width:85%;">সার্ভারে সমস্যা হচ্ছে, কিছুক্ষণ পর চেষ্টা করুন।</div>`;
   }
   msgs.scrollTop = msgs.scrollHeight;
 }
 
-// Draggable Floating Logic (Supports Mouse & Touch)
+// Draggable Floating Logic
 (function makeDraggable() {
   const win = document.getElementById("ai-chat-window");
   const header = document.getElementById("ai-chat-header");
@@ -1042,7 +1046,6 @@ async function sendMessage() {
     let newX = initialLeft + dx;
     let newY = initialTop + dy;
 
-    // Keep within viewport boundaries
     newX = Math.max(10, Math.min(window.innerWidth - win.offsetWidth - 10, newX));
     newY = Math.max(10, Math.min(window.innerHeight - win.offsetHeight - 10, newY));
 
@@ -1063,6 +1066,3 @@ async function sendMessage() {
   document.addEventListener('touchend', onEnd);
 })();
 </script>
-    
-</body>
-</html>
