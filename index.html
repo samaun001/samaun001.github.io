@@ -34,7 +34,7 @@
     .sec-subtitle { font-size: 0.95rem; color: var(--text-muted); text-align: center; margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
     /* Buttons */
-    .btn { display: inline-flex; align-items: center; padding: 12px 28px; font-weight: 700; text-transform: uppercase; text-decoration: none; border-radius: 50px; transition: 0.3s ease; gap: 10px; font-size: 0.85rem; border: none; cursor: pointer; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; font-weight: 700; text-transform: uppercase; text-decoration: none; border-radius: 50px; transition: 0.3s ease; gap: 10px; font-size: 0.85rem; border: none; cursor: pointer; }
     .btn-primary { background: linear-gradient(45deg, var(--primary), #ff8800); color: #fff; box-shadow: 0 4px 15px rgba(255, 77, 0, 0.4); }
     .btn-primary:hover { box-shadow: 0 6px 25px rgba(255, 77, 0, 0.6); transform: translateY(-2px); }
     .btn-secondary { background: transparent; border: 2px solid var(--secondary); color: var(--secondary); }
@@ -46,73 +46,145 @@
     .m-card:hover { border-color: var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: translateY(-5px); }
 
     /* Header */
-    header { position: fixed; top: 0; width: 100%; background: rgba(7, 10, 19, 0.92); backdrop-filter: blur(10px); z-index: 1000; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    header { position: fixed; top: 0; width: 100%; background: rgba(7, 10, 19, 0.92); backdrop-filter: blur(12px); z-index: 1000; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
     nav { display: flex; justify-content: space-between; align-items: center; }
     .logo { font-size: 1.4rem; font-weight: 800; color: #fff; text-decoration: none; font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
     .logo span { color: var(--primary); }
-    .nav-links { display: flex; gap: 20px; list-style: none; }
+    .nav-links { display: flex; gap: 22px; list-style: none; }
     .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.85rem; transition: 0.3s; text-transform: uppercase; }
     .nav-links a:hover { color: #fff; }
     .menu-btn { display: none; color: #fff; font-size: 1.4rem; cursor: pointer; }
 
     /* Hero */
-    #hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; background: radial-gradient(circle at center, #172138 0%, var(--bg-dark) 75%); padding-top: 60px; }
-    .hero-content h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 15px; text-transform: uppercase; color: #fff; }
+    #hero { 
+      height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      text-align: center; 
+      position: relative; 
+      background: radial-gradient(ellipse at center, #1a2744 0%, #0c1220 45%, var(--bg-dark) 100%);
+      padding-top: 60px;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,77,0,0.12) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-content h1 { font-size: 3.6rem; font-weight: 800; line-height: 1.1; margin-bottom: 18px; text-transform: uppercase; color: #fff; letter-spacing: 1px; }
     .hero-content h1 span { color: var(--primary); }
-    .hero-content .typing-text { font-size: 1.4rem; color: var(--secondary); font-weight: 600; min-height: 1.6em; margin-bottom: 35px; }
-    .hero-btns { display: flex; gap: 15px; justify-content: center; }
+    .hero-content .typing-text { font-size: 1.45rem; color: var(--secondary); font-weight: 600; min-height: 1.6em; margin-bottom: 40px; }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
     /* About */
-    .about-wrapper { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: center; }
-    .about-img { border-radius: 16px; overflow: hidden; border: 3px solid var(--bg-card); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-    .about-img img { width: 100%; display: block; object-fit: cover; }
+    .about-wrapper { display: grid; grid-template-columns: 1fr 1.4fr; gap: 50px; align-items: center; }
+    .about-img { border-radius: 18px; overflow: hidden; border: 3px solid rgba(255,77,0,0.25); box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
+    .about-img img { width: 100%; display: block; object-fit: cover; transition: 0.4s; }
+    .about-img:hover img { transform: scale(1.03); }
     .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; }
-    .stat-item { background: var(--bg-card); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.03); }
-    .stat-item h4 { font-size: 1.6rem; color: var(--primary); font-weight: 800; }
-    .stat-item p { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; }
+    .stat-item { background: var(--bg-card); padding: 18px 12px; border-radius: 12px; text-align: center; border: 1px solid rgba(255,255,255,0.04); transition: 0.3s; }
+    .stat-item:hover { border-color: var(--primary); }
+    .stat-item h4 { font-size: 1.7rem; color: var(--primary); font-weight: 800; }
+    .stat-item p { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-top: 5px; letter-spacing: 0.5px; }
 
     /* Services */
-    #services .m-card i { font-size: 2.2rem; color: var(--secondary); margin-bottom: 20px; }
+    #services .m-card i { font-size: 2.3rem; color: var(--secondary); margin-bottom: 20px; }
     #services .m-card h3 { font-size: 1.3rem; color: #fff; margin-bottom: 12px; font-weight: 700; }
-    #services .m-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
-    .price-tag { font-size: 1.15rem; color: #fff; font-weight: 700; margin-bottom: 15px; display: block; }
+    #services .m-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
+    .price-tag { font-size: 1.15rem; color: #fff; font-weight: 700; margin-bottom: 18px; display: block; }
     .price-tag span { color: var(--text-muted); font-size: 0.85rem; font-weight: 400; }
 
     /* Gear */
     #gear .m-card { padding: 0; overflow: hidden; }
     .gear-img { width: 100%; height: 180px; object-fit: cover; }
     .gear-info { padding: 18px; }
-    .gear-info h3 { font-size: 1.05rem; color: #fff; margin-bottom: 6px; font-weight: 700; }
-    .gear-info p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px; }
+    .gear-info h3 { font-size: 1.08rem; color: #fff; margin-bottom: 6px; font-weight: 700; }
+    .gear-info p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 14px; }
     .gear-meta { display: flex; justify-content: space-between; align-items: center; }
     .gear-price { color: var(--primary); font-weight: 700; font-size: 1.05rem; }
 
     /* Contact */
     .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    .c-method { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; background: var(--bg-card); padding: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.03); }
-    .c-method i { font-size: 1.2rem; color: var(--secondary); }
-    .c-method a { text-decoration: none; color: #fff; font-weight: 600; font-size: 0.9rem; }
+    .c-method { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; background: var(--bg-card); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.04); transition: 0.3s; }
+    .c-method:hover { border-color: rgba(0,242,255,0.3); }
+    .c-method i { font-size: 1.25rem; color: var(--secondary); width: 24px; text-align: center; }
+    .c-method a { text-decoration: none; color: #fff; font-weight: 600; font-size: 0.95rem; }
     .social-links { display: flex; gap: 12px; margin-top: 25px; }
-    .social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--text-muted); text-decoration: none; transition: 0.3s; }
+    .social-links a { width: 42px; height: 42px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--text-muted); text-decoration: none; transition: 0.3s; font-size: 1.1rem; }
     .social-links a:hover { background: var(--primary); color: #fff; }
 
-    #contact-form { background: var(--bg-card); padding: 30px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.05); }
-    .form-group { margin-bottom: 15px; }
-    .form-control { width: 100%; padding: 12px; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; font-size: 0.9rem; }
-    .form-control:focus { outline: none; border-color: var(--primary); }
-    textarea.form-control { height: 120px; resize: none; }
+    /* WhatsApp Highlight Card */
+    .c-method.whatsapp-highlight {
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.18), rgba(37, 211, 102, 0.06));
+      border: 1px solid rgba(37, 211, 102, 0.45);
+    }
+    .c-method.whatsapp-highlight i {
+      color: #25D366;
+      font-size: 1.6rem;
+    }
+    .c-method.whatsapp-highlight a {
+      color: #25D366;
+      font-weight: 700;
+      font-size: 1.08rem;
+    }
 
-    footer { padding: 25px 0; background: var(--bg-dark); text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-    footer p { color: var(--text-muted); font-size: 0.8rem; }
+    #contact-form { background: var(--bg-card); padding: 32px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
+    .form-group { margin-bottom: 16px; }
+    .form-control { width: 100%; padding: 13px 15px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: #fff; font-size: 0.95rem; transition: 0.3s; }
+    .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(255,77,0,0.15); }
+    textarea.form-control { height: 130px; resize: none; }
+
+    footer { padding: 28px 0; background: var(--bg-dark); text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+    footer p { color: var(--text-muted); font-size: 0.85rem; }
+
+    /* Floating WhatsApp - বড় ও Pulse */
+    .float-whatsapp {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 70px;
+      height: 70px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+      z-index: 999;
+      transition: 0.3s;
+      text-decoration: none;
+      animation: pulse-whatsapp 2s infinite;
+    }
+    .float-whatsapp:hover {
+      transform: scale(1.12);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.7);
+    }
+    @keyframes pulse-whatsapp {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
 
     @media (max-width: 768px) {
-      .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-card); padding: 20px; flex-direction: column; text-align: center; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-card); padding: 20px; flex-direction: column; text-align: center; gap: 15px; }
       .nav-links.active { display: flex; }
       .menu-btn { display: block; }
-      .hero-content h1 { font-size: 2.4rem; }
-      .hero-btns { flex-direction: column; gap: 10px; }
-      .about-wrapper, .contact-wrapper { grid-template-columns: 1fr; }
-      section { padding: 50px 0; }
+      .hero-content h1 { font-size: 2.35rem; }
+      .hero-btns { flex-direction: column; gap: 12px; }
+      .about-wrapper, .contact-wrapper { grid-template-columns: 1fr; gap: 30px; }
+      section { padding: 55px 0; }
+      .stat-grid { grid-template-columns: repeat(3, 1fr); }
+      .float-whatsapp { width: 62px; height: 62px; font-size: 2rem; bottom: 22px; right: 22px; }
     }
   </style>
 </head>
@@ -159,7 +231,7 @@
         </div>
         <div class="about-text">
           <h2 class="sec-title" style="text-align: left;">ABOUT <span>ME</span></h2>
-          <p>আমি একজন প্যাশনেট **মোটো ভ্লগার** ও **এআই কন্টেন্ট ক্রিয়েটর**। ইউটিউবে আমার চ্যানেল **`@Biker_Samaun`**-এর মাধ্যমে আমি মোটোব্লগিং, বাইক রাইডিং এবং আধুনিক AI প্রযুক্তির কনটেন্ট মানুষের কাছে পৌঁছে দিই।</p>
+          <p>আমি একজন প্যাশনেট মোটো ভ্লগার ও এআই কন্টেন্ট ক্রিয়েটর। ইউটিউবে আমার চ্যানেল <strong>@Biker_Samaun</strong>-এর মাধ্যমে আমি মোটোব্লগিং, বাইক রাইডিং এবং আধুনিক AI প্রযুক্তির কনটেন্ট মানুষের কাছে পৌঁছে দিই।</p>
           <div class="stat-grid">
             <div class="stat-item"><h4>30+</h4><p>Videos</p></div>
             <div class="stat-item"><h4>1.3K+</h4><p>Subscribers</p></div>
@@ -170,7 +242,7 @@
     </div>
   </section>
 
-  <!-- Services (Income Source 1) -->
+  <!-- Services -->
   <section id="services">
     <div class="container">
       <h2 class="sec-title">MY <span>SERVICES</span></h2>
@@ -205,7 +277,7 @@
     </div>
   </section>
 
-  <!-- Gear & Affiliate (Income Source 2) -->
+  <!-- Gear -->
   <section id="gear">
     <div class="container">
       <h2 class="sec-title">MY <span>GEAR</span></h2>
@@ -219,7 +291,31 @@
             <p>নিরাপদ ও সিনেমাটিক মোটোভ্লগিংয়ের জন্য স্পেশাল কিট।</p>
             <div class="gear-meta">
               <span class="gear-price">Premium</span>
-              <a href="#contact" class="btn btn-primary">Check Details</a>
+              <a href="#contact" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.75rem;">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <img src="Banner.jpg" alt="Action Camera" class="gear-img">
+          <div class="gear-info">
+            <h3>Action Camera Setup</h3>
+            <p>GoPro / Insta360 স্টাইল ক্যামেরা সেটআপ সিনেমাটিক শটের জন্য।</p>
+            <div class="gear-meta">
+              <span class="gear-price">Pro</span>
+              <a href="#contact" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.75rem;">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <img src="Banner.jpg" alt="Audio Gear" class="gear-img">
+          <div class="gear-info">
+            <h3>Audio & Mic Kit</h3>
+            <p>ক্লিন ভয়েস ও উইন্ড নয়েজ কন্ট্রোলের জন্য প্রফেশনাল অডিও গিয়ার।</p>
+            <div class="gear-meta">
+              <span class="gear-price">Essential</span>
+              <a href="#contact" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.75rem;">Details</a>
             </div>
           </div>
         </div>
@@ -235,7 +331,6 @@
       <p class="sec-subtitle">আমার ইউটিউব চ্যানেলের সাম্প্রতিক রাইড ও ভিডিওসমূহ:</p>
       
       <div style="border-radius: 12px; overflow: hidden;">
-        <!-- Elfsight YouTube Gallery Widget -->
         <script src="https://elfsightcdn.com/platform.js" async></script>
         <div class="elfsight-app-54743922-42b7-4c52-a5e6-28caf274f134" data-elfsight-app-lazy></div>
       </div>
@@ -266,21 +361,30 @@
             </div>
           </div>
 
+          <div class="c-method whatsapp-highlight">
+            <i class="fab fa-whatsapp"></i>
+            <div>
+              <p style="margin:0; font-size:0.8rem; color:var(--text-muted);">WhatsApp</p>
+              <a href="https://wa.me/https://chat.whatsapp.com/E1iTYK2sH3y2TGKgbOH18E?s=cl&p=a&ilr=0" target="_blank">এখনই মেসেজ পাঠান</a>
+            </div>
+          </div>
+
           <div class="social-links">
             <a href="https://youtube.com/@biker_samaun" target="_blank"><i class="fab fa-youtube"></i></a>
             <a href="https://github.com/samaun001" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://wa.me/https://chat.whatsapp.com/E1iTYK2sH3y2TGKgbOH18E?s=cl&p=a&ilr=0" target="_blank"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
 
-        <form id="contact-form">
+        <form id="contact-form" onsubmit="sendMail(event)">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="আপনার নাম" required>
+            <input type="text" id="name" class="form-control" placeholder="আপনার নাম" required>
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="আপনার ইমেল" required>
+            <input type="email" id="email" class="form-control" placeholder="আপনার ইমেল" required>
           </div>
           <div class="form-group">
-            <textarea class="form-control" placeholder="আপনার মেসেজ লিখুন..." required></textarea>
+            <textarea id="message" class="form-control" placeholder="আপনার মেসেজ লিখুন..." required></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width:100%;">মেসেজ পাঠান</button>
         </form>
@@ -295,6 +399,11 @@
     </div>
   </footer>
 
+  <!-- Floating WhatsApp Button (বড় + Pulse) -->
+  <a href="https://wa.me/9907271346" class="float-whatsapp" target="_blank" title="WhatsApp এ মেসেজ করুন">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
@@ -308,6 +417,19 @@
       backSpeed: 40,
       loop: true
     });
+
+    function sendMail(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      const subject = encodeURIComponent("Portfolio Contact from " + name);
+      const body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message);
+      
+      window.location.href = `mailto:your-samaunzack@gmail.com?subject=\( {subject}&body= \){body}`;
+      alert("মেসেজ পাঠানোর জন্য আপনার ইমেইল অ্যাপ খুলবে। ধন্যবাদ!");
+    }
   </script>
 
   <!-- Botpress Chatbot -->
